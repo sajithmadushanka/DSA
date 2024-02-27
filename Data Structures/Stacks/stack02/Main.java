@@ -10,9 +10,11 @@ public class Main{
         stackX.push(60);
         System.out.println(stackX.isEmpty());
         System.out.println(stackX.isFull());
+
+        System.out.println("Count = " + stackX.count());
+        stackX.display();
     }
 }
-
 
 class StackX{
     private int maxSize;
@@ -44,5 +46,13 @@ class StackX{
     }
     public boolean isEmpty(){
         return top == -1;
+    }
+    public int count(){
+        return top+1;
+    }
+    public void display(){
+        while (!isEmpty()) {
+            System.out.println(pop());
+        }
     }
 }
