@@ -13,8 +13,12 @@ public class Main{
         linkList.insertFront(30);
         linkList.insertFront(40);
         linkList.displayList();
-        System.out.println(linkList.deleteFront().iData);
-        System.out.println(linkList.deleteFront().iData);
+        // System.out.println(linkList.deleteFront().iData);
+        // System.out.println(linkList.deleteFront().iData);
+        System.out.println(linkList.search(200));
+        linkList.insertAfter(new Node(25), 20);
+        System.out.println("-------------------------");
+        linkList.displayList();
 
     }
 }
@@ -60,6 +64,24 @@ class LinkList{
             return nodex;
         }return null;
     }
-  
+  public Node search(int i){
+    Node currentNode = first;
+    while (currentNode.next != null) {
+        if(i == currentNode.iData){
+            return currentNode;
+        }
+        currentNode = currentNode.next;
+    }
+    return null;
+
+  }
+  public void insertAfter(Node newNode, int AfterNo){
+    Node afterNode = search(AfterNo);
+    if(afterNode != null){
+            Node temp = afterNode.next;
+            afterNode.next = newNode;
+            newNode.next = temp;
+    }else System.out.println("the number is not found");
+  }
 
 }
